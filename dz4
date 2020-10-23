@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+double h,b,f;
+int n, j,i;
+double a[3]{};
+
+
+int main()
+{
+    cout << "enter h=" << endl;
+    cin >> h;
+    cout << "enter b=" << endl;
+    cin >> b;
+    cout << "enter n=" << endl;
+    cin >> n;
+    double* x = new double[n];
+    cout << "enter a[3]=" << endl;
+    cin >> a[0] >> a[1] >> a[2];
+    for (j = 1; j < n; j++) {
+        x[j] = b + j * h;
+        for (i = 0; i < 3; i++) {
+            f = (1 - 5.7 * cos(a[i] - x[j])) / (2.6 + cos(a[i] + x[j]) * cos(a[i] + x[j]));
+            cout << f << endl;
+        }
+    }
+}
