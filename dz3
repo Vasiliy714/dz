@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-double h,b,f1,f2;
-int n, j,i;
+double h, b, f, min1, max1;
+int n, j, i;
 double a[3]{};
 
 
@@ -17,17 +17,24 @@ int main()
     double* x = new double[n];
     cout << "enter a[3]=" << endl;
     cin >> a[0] >> a[1] >> a[2];
-    for (j = 1; j < n; j++) {
-        x[j] = b + j * h;
-        for (i = 0; i < 3; i++) {
+    for (i = 0; i < 3; i++) {
+        min1 = INT_MAX;
+        max1 = -1;
+        for (j = 1; j < n; j++) {
+            x[j] = b + j * h;
             if (a[i] >= 0) {
-                f1 = x[j] * cos(a[i] - x[j] + 1);
-                cout << f1 << endl;
+                f = x[j] * cos(a[i] - x[j] + 1);
             }
             else {
-                f2 = 2 * cos(a[i] + x[j]);
-                cout << f2 << endl;
+                f = 2 * cos(a[i] + x[j]);
+            }
+            if (min1 > f*f) {
+                min1 = f*f;
+            }
+            if (max1 < f*f) {
+                max1 = f*f;
             }
         }
+    cout <<"MIN:"<< min1 << " MAX:" << max1<<endl;
     }
 }
