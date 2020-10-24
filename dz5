@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-double h,b,f;
+double h,b,f,min1,max1;
 int n, j,i;
 double a[3]{};
 
@@ -17,11 +17,20 @@ int main()
     double* x = new double[n];
     cout << "enter a[3]=" << endl;
     cin >> a[0] >> a[1] >> a[2];
-    for (j = 1; j < n; j++) {
-        x[j] = b + j * h;
-        for (i = 0; i < 3; i++) {
+    for (i = 0; i < 3; i++) {
+        min1 = INT_MAX;
+        max1 = -1;
+        for (j = 1; j < n; j++) {
+            x[j] = b + j * h;
             f = 0.8+2*sin(x[j])-5.5*sin(a[i])*sin(a[i]);
-            cout << f << endl;
+            if (f*f < min1){
+                min1=f*f;
+            }
+            if (f*f > max1){
+                max1=f*f;
+            }
         }
+        cout << "MIN:" << min1 << " MAX:" << max1 << endl;
     }
 }
+
