@@ -74,3 +74,41 @@ int main()
     }
 }
 4)
+#include <iostream>
+using namespace std;
+
+int i,j,a, b, c, d,n,h, k,t;
+
+int main()
+{
+    cout << "Enter n=";
+    cin >> n;
+    cout << "Enter a=";
+    cin >> a;
+    cout << "Enter b=";
+    cin >> b;
+    cout << "Enter c=";
+    cin >> c;
+    cout << "Enter d=";
+    cin >> d;
+
+    int* h = new int[n+1];
+    for (i = 1; i < n + 1; i++) {
+        h[i] = i;
+    }
+    k = a;
+    for (j = b; j >= a; j--) {
+        h[k]=j;
+        k++;
+    }
+    k = d;
+    for (i = c; i <= (d+c)/2; i++) {
+        t = h[i];
+        h[i] = h[k];
+        h[k] = t;
+        k--;
+    }
+    for (i = 1; i < n+1; i++) {
+        cout << h[i] << " ";
+    }
+}
