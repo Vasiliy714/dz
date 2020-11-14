@@ -1,0 +1,76 @@
+1)
+#include <iostream>
+using namespace std;
+
+int a, b, c, d,i,t=0;
+
+int main()
+{
+    cin >> a;
+    cin >> b;
+    cin >> c;
+    cin >> d;
+    for (i = 10000; i < 100000;i++) {
+        if ((i % a == b) && (i % c == d)) {
+            cout << i << " ";
+            t = 1;
+        }
+        }
+    if (t == 0) {
+        cout << -1;
+    }
+    
+}
+2)
+#include <iostream>
+using namespace std;
+
+int n,i,t=0;
+
+int main()
+{
+    cin >> n;
+    for (i = 2; i < sqrt(n) && t==0;i++) {
+        if (n%i==0) {
+            t = 1;
+        }
+        }
+    if (t == 0) {
+        cout << "prime";
+    }
+    if (t == 1) {
+        cout << "composite";
+    }
+    
+}
+3)
+#include <iostream>
+using namespace std;
+
+int i,t=0,m=0,f=0;
+double o;
+int const n = 7;
+int a[n];
+
+int main()
+{
+    for (i = 0; i < n; i++) {
+        cout << "Enter a[" << i << "]=";
+        cin >> a[i];
+    }
+    for (i = 0; i < n; i++) {
+        if (a[i] % 2 == 1) {
+            t++;
+            m += a[i];
+            f = 1;
+        }
+    }
+    if (f == 0) {
+        cout << "NO";
+    }
+    else {
+        o = m / t;
+        cout << o;
+    }
+}
+4)
